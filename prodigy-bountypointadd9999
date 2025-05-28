@@ -1,0 +1,7 @@
+source = Boot.prototype.game._state._current.user.source;
+source.addBountyScore(9999); //set this number to how many points you want to add to your current points
+
+source.saveEnabled = true;
+source.forceSaveCharacter();
+source.appearanceChanged = true;
+Boot.prototype.game._state._current.user.source.updated=true;
