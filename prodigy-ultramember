@@ -1,0 +1,13 @@
+var set_membership = true;
+
+// set_membership must be a boolean ( true / false ).
+
+Boot.prototype.game._state._current.user.source.hasMembership = () => { return set_membership; };
+Boot.prototype.game._state._current.user.source.hasLegacyMembership = () => { return set_membership; };
+Boot.prototype.game._state._current.user.source.hasMembershipFeatureAccess = () => { return set_membership; };
+
+var source = Boot.prototype.game._state._current.user.source;
+    
+source.saveEnabled = true;
+source.forceSaveCharacter();
+source.appearanceChanged = true;
