@@ -1,0 +1,9 @@
+var tower_level = 999, source = Boot.prototype.game._state._current.user.source;
+
+source.getTowerProgress = () => tower_level;
+source.data.tower = tower_level;
+source.saveEnabled = true;
+source.forceSaveCharacter();
+source.appearanceChanged = true;
+
+// tower_level must be a whole number ( 0 - 1000 ).
