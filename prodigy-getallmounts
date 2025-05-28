@@ -1,0 +1,27 @@
+function getAllMounts() {
+    Boot.prototype.game._state._current.user.source.backpack.data.mount = []; // Clear existing mounts if needed
+
+    var mountsData = Boot.prototype.game._state._states.get("Boot")._gameData.mount;
+   
+    for (var i = 0; i < mountsData.length; i++) {
+        var mountID = mountsData[i].ID;
+
+        // Add mount to backpack
+        Boot.prototype.game._state._current.user.source.backpack.data.mount.push({ "ID": mountID, "N": 1 });
+       
+        console.log(`Added mount with ID ${mountID} to backpack.`);
+    }
+
+    console.log("All mounts added to backpack:", Boot.prototype.game._state._current.user.source.backpack.data.mount);
+    Boot.prototype.game._state._current.user.source.updated = true;
+}
+
+// Example usage: Get all mounts and add them to backpack
+getAllMounts();
+
+source = Boot.prototype.game._state._current.user.source;
+source.saveEnabled = true;
+source.forceSaveCharacter();
+source.appearanceChanged = true;
+Boot.prototype.game._state._current.user.source.backpack.updated = true;
+// Forces save
